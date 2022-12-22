@@ -22,21 +22,36 @@ if __name__ == '__main__':
     print("Probabilities:")
     print(net.probabilities)
 
-    # Make your variable elimination code in the seperate file: 'variable_elim'. 
-    # You use this file as follows:
-    #ve = VariableElimination(net)
+    # Make your variable elimination code in a seperate file: 'variable_elim'. 
+    # You can call this file as follows:
+    ve = VariableElimination(net, "log.txt")
 
     # Set the node to be queried as follows:
-    #query = 'Alarm'
+    print("Variables: ")
+    print(net.nodes)
+    query = input("Please enter the query variable: ")
 
-    # The evidence is represented in the following way (can also be empty when there is no evidence): 
-    #evidence = {'Burglary': 'True'}
-
+    # The evidence is represented in the following way (can also be empty when there is no evidence):
+    evidence = {}
+    while True:
+        print("Variables: ")
+        print(net.nodes)
+        var = input("Enter a variable to be added to the evidence, press RETURN to continue: ")
+        if var == "":
+            break
+        print("Values: ")
+        print(net.values[var])
+        val = input("Enter a value for the variable: ")
+        evidence[var] = val
     # Determine your elimination ordering before you call the run function. The elimination ordering   
     # is either specified by a list or a heuristic function that determines the elimination ordering
     # given the network. Experimentation with different heuristics will earn bonus points. The elimination
     # ordering can for example be set as follows:
-    #elim_order = net.nodes
+    elim_order = ve.eliminationOrdering(query)
 
-    # Call the variable elimination function for the queried node given the evidence and the elimination ordering as follows:   
-    #ve.run(query, evidence, elim_order)
+    # Call the variable elimination function for the queried node given the evidence and the elimination ordering as
+    # follows:
+    print(ve.run(query, evidence, elim_order))
+    ve.close()
+
+

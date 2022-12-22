@@ -1,0 +1,277 @@
+Starting with query=Earthquake, observed={'Alarm': 'True'} and elimination ordering=['Burglary', 'Alarm', 'JohnCalls', 'MaryCalls'].
+Required factors: 
+[
+Factor with: ['Burglary']
+  Burglary  prob
+0     True  0.01
+1    False  0.99, 
+Factor with: ['Earthquake']
+  Earthquake  prob
+0       True  0.02
+1      False  0.98, 
+Factor with: ['Alarm' 'Burglary' 'Earthquake']
+   Alarm Burglary Earthquake   prob
+0   True     True       True  0.950
+1  False     True       True  0.050
+2   True    False       True  0.290
+3  False    False       True  0.710
+4   True     True      False  0.940
+5  False     True      False  0.060
+6   True    False      False  0.001
+7  False    False      False  0.999, 
+Factor with: ['JohnCalls' 'Alarm']
+  JohnCalls  Alarm  prob
+0      True   True  0.90
+1     False   True  0.10
+2      True  False  0.05
+3     False  False  0.95, 
+Factor with: ['MaryCalls' 'Alarm']
+  MaryCalls  Alarm  prob
+0      True   True  0.70
+1     False   True  0.30
+2      True  False  0.01
+3     False  False  0.99]
+Reduced factors: 
+[
+Factor with: ['Burglary']
+  Burglary  prob
+0     True  0.01
+1    False  0.99, 
+Factor with: ['Earthquake']
+  Earthquake  prob
+0       True  0.02
+1      False  0.98, 
+Factor with: ['Alarm' 'Burglary' 'Earthquake']
+  Alarm Burglary Earthquake   prob
+0  True     True       True  0.950
+2  True    False       True  0.290
+4  True     True      False  0.940
+6  True    False      False  0.001, 
+Factor with: ['JohnCalls' 'Alarm']
+  JohnCalls Alarm  prob
+0      True  True   0.9
+1     False  True   0.1, 
+Factor with: ['MaryCalls' 'Alarm']
+  MaryCalls Alarm  prob
+0      True  True   0.7
+1     False  True   0.3]
+Variable to be eliminated: Burglary
+Factor Factor with: ['Burglary']
+  Burglary  prob
+0     True  0.01
+1    False  0.99
+ added to multiplication list.
+Factor Factor with: ['Alarm' 'Burglary' 'Earthquake']
+  Alarm Burglary Earthquake   prob
+0  True     True       True  0.950
+2  True    False       True  0.290
+4  True     True      False  0.940
+6  True    False      False  0.001
+ added to multiplication list.
+After multiplication: Factor with: ['Alarm' 'Burglary' 'Earthquake']
+  Alarm Burglary Earthquake     prob
+0  True     True       True  0.00950
+1  True     True      False  0.00940
+2  True    False       True  0.28710
+3  True    False      False  0.00099
+
+After marginalization: Factor with: ['Alarm' 'Earthquake']
+  Alarm Earthquake     prob
+0  True       True  0.29660
+1  True      False  0.01039
+
+Resulting factor: Factor with: ['Alarm' 'Earthquake']
+  Alarm Earthquake     prob
+0  True       True  0.29660
+1  True      False  0.01039
+
+Factors after elimination of Burglary: [
+Factor with: ['Earthquake']
+  Earthquake  prob
+0       True  0.02
+1      False  0.98, 
+Factor with: ['JohnCalls' 'Alarm']
+  JohnCalls Alarm  prob
+0      True  True   0.9
+1     False  True   0.1, 
+Factor with: ['MaryCalls' 'Alarm']
+  MaryCalls Alarm  prob
+0      True  True   0.7
+1     False  True   0.3, 
+Factor with: ['Alarm' 'Earthquake']
+  Alarm Earthquake     prob
+0  True       True  0.29660
+1  True      False  0.01039]
+Variable to be eliminated: Alarm
+Factor Factor with: ['JohnCalls' 'Alarm']
+  JohnCalls Alarm  prob
+0      True  True   0.9
+1     False  True   0.1
+ added to multiplication list.
+Factor Factor with: ['MaryCalls' 'Alarm']
+  MaryCalls Alarm  prob
+0      True  True   0.7
+1     False  True   0.3
+ added to multiplication list.
+Factor Factor with: ['Alarm' 'Earthquake']
+  Alarm Earthquake     prob
+0  True       True  0.29660
+1  True      False  0.01039
+ added to multiplication list.
+After multiplication: Factor with: ['Alarm' 'Earthquake' 'MaryCalls' 'JohnCalls']
+  Alarm Earthquake MaryCalls JohnCalls      prob
+0  True       True      True      True  0.186858
+1  True       True      True     False  0.020762
+2  True       True     False      True  0.080082
+3  True       True     False     False  0.008898
+4  True      False      True      True  0.006546
+5  True      False      True     False  0.000727
+6  True      False     False      True  0.002805
+7  True      False     False     False  0.000312
+
+After marginalization: Factor with: ['Earthquake' 'MaryCalls' 'JohnCalls']
+  Earthquake MaryCalls JohnCalls      prob
+0       True      True      True  0.186858
+1       True      True     False  0.020762
+2       True     False      True  0.080082
+3       True     False     False  0.008898
+4      False      True      True  0.006546
+5      False      True     False  0.000727
+6      False     False      True  0.002805
+7      False     False     False  0.000312
+
+Resulting factor: Factor with: ['Earthquake' 'MaryCalls' 'JohnCalls']
+  Earthquake MaryCalls JohnCalls      prob
+0       True      True      True  0.186858
+1       True      True     False  0.020762
+2       True     False      True  0.080082
+3       True     False     False  0.008898
+4      False      True      True  0.006546
+5      False      True     False  0.000727
+6      False     False      True  0.002805
+7      False     False     False  0.000312
+
+Factors after elimination of Alarm: [
+Factor with: ['Earthquake']
+  Earthquake  prob
+0       True  0.02
+1      False  0.98, 
+Factor with: ['Earthquake' 'MaryCalls' 'JohnCalls']
+  Earthquake MaryCalls JohnCalls      prob
+0       True      True      True  0.186858
+1       True      True     False  0.020762
+2       True     False      True  0.080082
+3       True     False     False  0.008898
+4      False      True      True  0.006546
+5      False      True     False  0.000727
+6      False     False      True  0.002805
+7      False     False     False  0.000312]
+Variable to be eliminated: JohnCalls
+Factor Factor with: ['Earthquake' 'MaryCalls' 'JohnCalls']
+  Earthquake MaryCalls JohnCalls      prob
+0       True      True      True  0.186858
+1       True      True     False  0.020762
+2       True     False      True  0.080082
+3       True     False     False  0.008898
+4      False      True      True  0.006546
+5      False      True     False  0.000727
+6      False     False      True  0.002805
+7      False     False     False  0.000312
+ added to multiplication list.
+After multiplication: Factor with: ['Earthquake' 'MaryCalls' 'JohnCalls']
+  Earthquake MaryCalls JohnCalls      prob
+0       True      True      True  0.186858
+1       True      True     False  0.020762
+2       True     False      True  0.080082
+3       True     False     False  0.008898
+4      False      True      True  0.006546
+5      False      True     False  0.000727
+6      False     False      True  0.002805
+7      False     False     False  0.000312
+
+After marginalization: Factor with: ['Earthquake' 'MaryCalls']
+  Earthquake MaryCalls      prob
+0       True      True  0.207620
+1       True     False  0.088980
+2      False      True  0.007273
+3      False     False  0.003117
+
+Resulting factor: Factor with: ['Earthquake' 'MaryCalls']
+  Earthquake MaryCalls      prob
+0       True      True  0.207620
+1       True     False  0.088980
+2      False      True  0.007273
+3      False     False  0.003117
+
+Factors after elimination of JohnCalls: [
+Factor with: ['Earthquake']
+  Earthquake  prob
+0       True  0.02
+1      False  0.98, 
+Factor with: ['Earthquake' 'MaryCalls']
+  Earthquake MaryCalls      prob
+0       True      True  0.207620
+1       True     False  0.088980
+2      False      True  0.007273
+3      False     False  0.003117]
+Variable to be eliminated: MaryCalls
+Factor Factor with: ['Earthquake' 'MaryCalls']
+  Earthquake MaryCalls      prob
+0       True      True  0.207620
+1       True     False  0.088980
+2      False      True  0.007273
+3      False     False  0.003117
+ added to multiplication list.
+After multiplication: Factor with: ['Earthquake' 'MaryCalls']
+  Earthquake MaryCalls      prob
+0       True      True  0.207620
+1       True     False  0.088980
+2      False      True  0.007273
+3      False     False  0.003117
+
+After marginalization: Factor with: ['Earthquake']
+  Earthquake     prob
+0       True  0.29660
+1      False  0.01039
+
+Resulting factor: Factor with: ['Earthquake']
+  Earthquake     prob
+0       True  0.29660
+1      False  0.01039
+
+Factors after elimination of MaryCalls: [
+Factor with: ['Earthquake']
+  Earthquake  prob
+0       True  0.02
+1      False  0.98, 
+Factor with: ['Earthquake']
+  Earthquake     prob
+0       True  0.29660
+1      False  0.01039]
+Variable to be eliminated: Earthquake
+Factor Factor with: ['Earthquake']
+  Earthquake  prob
+0       True  0.02
+1      False  0.98
+ added to multiplication list.
+Factor Factor with: ['Earthquake']
+  Earthquake     prob
+0       True  0.29660
+1      False  0.01039
+ added to multiplication list.
+After multiplication: Factor with: ['Earthquake']
+  Earthquake      prob
+0       True  0.005932
+1      False  0.010182
+
+Resulting factor: Factor with: ['Earthquake']
+  Earthquake      prob
+0       True  0.005932
+1      False  0.010182
+
+Factors after elimination of Earthquake: [
+Factor with: ['Earthquake']
+  Earthquake      prob
+0       True  0.005932
+1      False  0.010182]
+Done!
