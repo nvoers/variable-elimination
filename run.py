@@ -5,6 +5,9 @@ Entry point for the creation of the variable elimination algorithm in Python 3.
 Code to read in Bayesian Networks has been provided. We assume you have installed the pandas package.
 
 """
+
+# Nick van Oers, s1009378
+# Jord Cluitmans, s1052807
 from read_bayesnet import BayesNet
 from variable_elim import VariableElimination
 
